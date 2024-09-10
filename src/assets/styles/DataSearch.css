@@ -25,14 +25,13 @@
 
 .dateInput {
   display: flex;
-  flex-direction: column;
-  width: 300px;
-  gap: 4px;
+  align-items: center;
 }
 
 .dateInput input {
   padding: 6px;
-  width: 280px;
+  margin-top: 12px;
+  width: 580px;
   outline: none;
   font-size: large;
   border-radius: 8px;

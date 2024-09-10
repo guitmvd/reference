@@ -15,10 +15,10 @@ const User = () => {
   const { id, pin } = useParams();
   const nav = useNavigate();
 
-  const selectedUser = Userss.find(
-    // const selectedUser = people.find(
-    // (u) => u.id === parseInt(id) || u.id === parseInt(pin)
-    (u) => u.id === parseInt(id) || u.pin === parseInt(pin)
+  // const selectedUser = Userss.find(
+    const selectedUser = people.find(
+    (u) => u.id === parseInt(id) || u.id === parseInt(pin)
+    // (u) => u.id === parseInt(id) || u.pin === parseInt(pin)
   );
 
   if (!selectedUser) {
@@ -106,13 +106,13 @@ const User = () => {
             </div>
             <div className="user-card">
               <span>Фамилия :</span>
-              <h2>{selectedUser.lastName}</h2>
-              {/* <h2>{selectedUser.username}</h2> */}
+              {/* <h2>{selectedUser.lastName}</h2> */}
+              <h2>{selectedUser.username}</h2>
             </div>
             <div className="user-card">
               <span>Адрес :</span>
-              <h2>{selectedUser.address}</h2>
-              {/* <h2>{selectedUser.email}</h2> */}
+              {/* <h2>{selectedUser.address}</h2> */}
+              <h2>{selectedUser.email}</h2>
             </div>
             <div className="user-card">
               <span>Телефон :</span>
@@ -120,8 +120,8 @@ const User = () => {
             </div> 
             <div className="user-card">
               <span>Ден рождении :</span>
-              <h2>{selectedUser.birth}</h2>
-              {/* <h2>{selectedUser.website}</h2> */}
+              {/* <h2>{selectedUser.birth}</h2> */}
+              <h2>{selectedUser.website}</h2>
             </div>
           </div>
           <img src={selectedUser.img} alt="img" />
@@ -132,44 +132,69 @@ const User = () => {
             <button onClick={() => setModal(true)}>
               <FaArrowUpRightFromSquare />
             </button>
-            <h2>С. о рождении</h2>
+            <h2>Статус пенсонера</h2>
           </div>
           <div className="user-doc">
             <button onClick={() => setModal(true)}>
               <FaArrowUpRightFromSquare />
             </button>
-            <h2>С. о работе</h2>
+            <h2>Информация о фактич. месте прож.</h2>
           </div>
           <div className="user-doc">
             <button onClick={() => setModal(true)}>
               <FaArrowUpRightFromSquare />
             </button>
-            <h2>С. о место</h2>
+            <h2>Информация о составе</h2>
           </div>
           <div className="user-doc">
             <button onClick={() => setModal(true)}>
               <FaArrowUpRightFromSquare />
             </button>
-            <h2>С. о семья</h2>
+            <h2>Свидетельство о смерти</h2>
           </div>
           <div className="user-doc">
             <button onClick={() => setModal(true)}>
               <FaArrowUpRightFromSquare />
             </button>
-            <h2>С. о соц фонд</h2>
+            <h2>Свидетельства о рождении детей</h2>
           </div>
           <div className="user-doc">
             <button onClick={() => setModal(true)}>
               <FaArrowUpRightFromSquare />
             </button>
-            <h2>С. о пенсия</h2>
+            <h2>Свидетельства о браке</h2>
           </div>
           <div className="user-doc">
             <button onClick={() => setModal(true)}>
               <FaArrowUpRightFromSquare />
             </button>
-            <h2>С. о жена</h2>
+            <h2>Свидетельства о расторжении брака</h2>
           </div>
+          <div className="user-doc">
+            <button onClick={() => setModal(true)}>
+              <FaArrowUpRightFromSquare />
+            </button>
+            <h2>Информация о</h2>
+          </div>
+          <div className="user-doc">
+            <button onClick={() => setModal(true)}>
+              <FaArrowUpRightFromSquare />
+            </button>
+            <h2>Справка из центра службы занятости</h2>
+          </div>
+          <div className="user-doc">
+            <button onClick={() => setModal(true)}>
+              <FaArrowUpRightFromSquare />
+            </button>
+            <h2>Справка с учебных заведений</h2>
+          </div>
+          <div className="user-doc">
+            <button onClick={() => setModal(true)}>
+              <FaArrowUpRightFromSquare />
+            </button>
+            <h2>Справка МСЭК</h2>
+          </div>
+         
         </div>
       </div>
       <div

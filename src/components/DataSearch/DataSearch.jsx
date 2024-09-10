@@ -121,7 +121,8 @@ const DataSearch = () => {
       // `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&units=metric&appid=6b4c292e3e049dbf64d6c2441cc77864&lang=ru`
       // `https://jsonplaceholder.typicode.com/users`
       // `http://16.171.146.76/search/id/?q=3`
-      `http://16.171.146.76/search/id/?q=${inputValuePin}`
+      // `http://16.171.146.76/search/id/?q=${inputValuePin}`
+      `http://13.60.234.99/search/id/?q=${inputValuePin}`
     );
     let { data } = await res;
     console.log(res);
@@ -141,15 +142,27 @@ const DataSearch = () => {
       <div className="container">
         <div className="dataSearch">
           <div className="dateInput">
-            <label>ПИН</label>
+            {/* <label>ПИН</label> */}
             <input
               onChange={(e) => setInputValuePin(e.target.value)}
               type="text"
               value={inputValuePin}
+              placeholder="Пин"
               onKeyDown={handleKeyDown}
             />
+            <div style={{ display: "flex", gap: 10 }}>
+              {inputValuePin ? (
+                <button onClick={searchByPin}>
+                  <MdPersonSearch />
+                </button>
+              ) : (
+                <button onClick={btn}>
+                  <MdPersonSearch />
+                </button>
+              )}
+            </div>
           </div>
-          <div className="dateInput">
+          {/* <div className="dateInput">
             <label>Фамилия</label>
             <input
               onChange={(e) => setInputValueLastName(e.target.value)}
@@ -164,19 +177,7 @@ const DataSearch = () => {
               type="text"
               value={inputValueName}
             />
-          </div>
-
-          <div style={{ display: "flex", gap: 10 }}>
-            {inputValuePin ? (
-              <button onClick={searchByPin}>
-                <MdPersonSearch />
-              </button>
-            ) : (
-              <button onClick={btn}>
-                <MdPersonSearch />
-              </button>
-            )}
-          </div>
+          </div> */}
         </div>
       </div>
       {adminModal ? (

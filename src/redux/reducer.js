@@ -1,37 +1,8 @@
-// const initialState = {
-//   userss: JSON.parse(localStorage.getItem("userss")) || [],
-//   people: []
-// };
-
-// export const Reducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case "ADD_USERSS":
-//       return {
-//         ...state,
-//         userss: [...state.userss, action.payload],
-//       };
-//     case "UPDATE_USERSS":
-//       return {
-//         ...state,
-//         userss: action.payload,
-//       };
-//     case "DELETE":
-//       let del = state.userss.filter((el) => el.id !== action.payload);
-//       localStorage.setItem("userss", JSON.stringify(del));
-//       return {
-//         ...state,
-//         userss: del,
-//       };
-//     case "GET":
-//       return { ...state, people: action.payload };
-//     default:
-//       return state;
-//   }
-// };
 
 const initialState = {
   userss: JSON.parse(localStorage.getItem("userss")) || [],
-  people: JSON.parse(localStorage.getItem("people")) || [], // Загружаем из localStorage
+  people: JSON.parse(localStorage.getItem("people")) || [],
+  data: JSON.parse(localStorage.getItem("data")) || [], // localStorage'дан жүктөө
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -43,6 +14,38 @@ export const Reducer = (state = initialState, action) => {
         ...state,
         userss: updatedUsers,
       };
+    case "ADD_DATA":
+      const addData = [...state.data, action.payload];
+      localStorage.setItem("data", JSON.stringify(addData));
+      return {
+        ...state,
+        data: addData,
+      };
+    case "UPDATE_DATA":
+      const updatedData = state.data.map((item) =>
+        item.id === action.payload.id
+          ? { ...item, ...action.payload.updates }
+          : item
+      );
+      localStorage.setItem("data", JSON.stringify(updatedData));
+      return {
+        ...state,
+        data: updatedData,
+      };
+    //     case "ADD_DATA":
+    // const addData = Array.isArray(state.data)
+    //   ? [...state.data, action.payload]
+    //   : [action.payload]; // Массив эмес болсо, жаңы массив түзүңүз
+    // localStorage.setItem("data", JSON.stringify(addData));
+    // return {
+    //   ...state,
+    //   data: addData,
+    // };
+        case "LOAD_DATA":
+    return {
+      ...state,
+      data: action.payload,
+    };
     case "UPDATE_USERSS":
       localStorage.setItem("userss", JSON.stringify(action.payload));
       return {

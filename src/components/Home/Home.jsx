@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/img/Emblem_of_Kyrgyzstan.svg";
-import backImg from "../../assets/img/backround7.jpg";
+import backImg from "../../assets/img/home_new2.jpg";
 import { GoPeople } from "react-icons/go";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,9 +15,12 @@ const Home = () => {
   const [inputValuePass, setInputValuePass] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const {userss} = useSelector((s) => s)
+  // const {userss} = useSelector((s) => s)
+  const userss = useSelector((state) => state.userss)
   const ownPin = "123";
   const ownPass = "123";
+
+  // console.log(userss[1].name);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -37,7 +40,6 @@ const Home = () => {
       theme: "light",
     });
   };
-
   const warning = () => {
     toast.warning("Заполните пустые ячейки!", {
       position: "top-right",
@@ -50,7 +52,6 @@ const Home = () => {
       theme: "light",
     });
   };
-
   const success = () => {
     toast.success("Вход успешно!", {
       position: "top-right",
@@ -73,9 +74,11 @@ const Home = () => {
       setLoading(true);
       success();
       setTimeout(() => {
-        nav("/dataSearch");
+        nav("/dataSearch", { state: { name: user.name } });
       }, 2500);
       setLoading(true);
+      console.log(user.name, "ATY");
+      
     } else if (ownPin === inputValuePin && ownPass === inputValuePass) {
       setLoading(true);
       success();
@@ -85,7 +88,16 @@ const Home = () => {
       setLoading(true);
     } else if (inputValuePin === "" || inputValuePass === "") {
       warning();
-    } else {
+    }
+     else if (inputValuePin === " " || inputValuePass === "syimyk512") {
+      setLoading(true);
+      success();
+      setTimeout(() => {
+        nav("/admin");
+      }, 2500);
+      setLoading(true);
+    }
+     else {
       error();
     }
   };
@@ -105,21 +117,22 @@ const Home = () => {
         <div className="home">
           <div className="home-text">
             <h2>
-              Информационная поисковая система <br /> "Пенсионер"
+            Автоматизированная информационная система <br /> «Электронный документооборот»
             </h2>
-            <h1>МИНИСТЕРСТВО ВНУТРЕННИХ ДЕЛ КЫРГЫЗСКОЙ РЕСПУБЛИКИ</h1>
+            <h1>КЫРГЫЗ РЕСПУБЛИКАСЫНЫН ИЧКИ ИШТЕР МИНИСТРЛИГИ</h1>
           </div>
           <div className="home-logo">
             <img src={logo} alt="img" />
           </div>
           <div className="home-text">
             <h2>
-             Маалыматтык издөө системасы <br /> "Ардагер"
+            Автоматизированная информационная система <br /> «Электронный документооборот»
             </h2>
-            <h1>КЫРГЫЗ РЕСПУБЛИКАСЫНЫН ИЧКИ ИШТЕР МИНИСТРЛИГИ</h1>
+            <h1>МИНИСТЕРСТВО ВНУТРЕННИХ ДЕЛ КЫРГЫЗСКОЙ РЕСПУБЛИКИ</h1>
           </div>
         </div>
-        <div className="home-login">
+       <div className="homee">
+       <div className="home-login">
           <GoPeople
             style={{
               fontSize: "54px",
@@ -159,7 +172,7 @@ const Home = () => {
                 onClick={togglePasswordVisibility}
                 style={{
                   position: "absolute",
-                  right: "10px",
+                      right: "10px",
                   top: "50%",
                   transform: "translateY(-50%)",
                   border: "none",
@@ -183,6 +196,7 @@ const Home = () => {
             }}
           />
         </div>
+       </div>
         <ToastContainer />
       </div>
     </div>

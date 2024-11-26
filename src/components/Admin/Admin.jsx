@@ -11,10 +11,10 @@ const Admin = () => {
   const [valuePin, setValuePin] = useState("");
   const [valuePassword, setValuePassword] = useState("");
   const [editId, setEditId] = useState(null);
-  const { userss } = useSelector((s) => s);
+  const userss = useSelector((state) => state.userss);
   const dispatch = useDispatch();
   const nav = useNavigate();
-  console.log(userss, "dfdfd");
+  console.log(userss);
 
   const error = () => {
     toast.error("Такой участник уже существует!", {
@@ -208,4 +208,3 @@ const addUserss = () => {
 };
 
 export default Admin;
-

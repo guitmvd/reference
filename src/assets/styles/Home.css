@@ -1,21 +1,7 @@
-/* .home-btn {
-  width: 900px;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin: 10px auto;
-  display: flex;
-  justify-content: center;
-} */
-
 #home {
   padding: 50px 0 1px 0;
-  height: 94vh;
+  height: 100vh;
   background: #76aded;
-  /* background: url("https://png.pngtree.com/thumb_back/fh260/background/20201011/pngtree-abstract-system-technology-background-image_410906.jpg"); */
 }
 
 .home {
@@ -23,11 +9,11 @@
   align-items: center;
   justify-content: space-around;
   text-align: center;
+  color: rgb(255, 255, 255);
 }
 
 .home-text {
   width: 600px;
-  /* color: white; */
 }
 
 .home-text h1 {
@@ -50,12 +36,10 @@
   width: 450px;
   height: 460px;
   border-radius: 24px;
-  /* background: #eaeaea; */
   background: white;
-  margin: 25px auto;
+  margin: 65px auto;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
   gap: 10px;
 }
@@ -63,7 +47,6 @@
 .home-login h2 {
   font-size: 30px;
   font-weight: 500;
-  /* background: red; */
 }
 
 .home-login input {
@@ -74,7 +57,6 @@
   font-size: 20px;
   outline: none;
   background: #f0f0f0;
-  /* background: #2c48b7; */
 }
 
 .home-line {

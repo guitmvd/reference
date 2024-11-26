@@ -1,8 +1,8 @@
 @import "./assets/styles/DataSearch.css";
-@import "./assets/styles/Users.css";
-@import "./assets/styles/User.css";
 @import "./assets/styles/Home.css";
 @import "./assets/styles/Admin.scss";
+@import "./assets/styles/DataAll.css";
+@import "./assets/styles/DataOwn.css";
 
 * {
   margin: 0;

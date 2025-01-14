@@ -184,7 +184,7 @@ const DataSearch = () => {
       setDataInput8("");
       setDataInput9("");
       // setDataInput10("");
-      setDataInputName("");
+      // setDataInputName("");
     }
   };
 
@@ -228,7 +228,8 @@ const DataSearch = () => {
         <tr>
           <th>
             {/* <input onChange={(e) => setDataInputName(e.target.value)} value={dataInputName} type="text" className="table-input"/> */}
-            <input  onChange={handleChange} value={dataInputName} type="text" className="table-input"/>
+            {/* <input  onChange={handleChange} value={dataInputName} type="text" className="table-input"/> */}
+            {<h5>{dataInputName}</h5>}
           </th>
             {/* <h2>{userName}</h2> */}
           <th>

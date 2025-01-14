@@ -29,7 +29,7 @@ const DataSearch = () => {
   const [dataInput7, setDataInput7] = useState("");
   const [dataInput8, setDataInput8] = useState("");
   const [dataInput9, setDataInput9] = useState("");
-  const [dataInput10, setDataInput10] = useState("");
+  // const [dataInput10, setDataInput10] = useState("");
   // const [dataInputName, setDataInputName] = useState("");
   
   console.log(data);
@@ -142,8 +142,8 @@ const DataSearch = () => {
       dataInput6.trim() === "" ||
       dataInput7.trim() === "" ||
       dataInput8.trim() === "" ||
-      dataInput9.trim() === "" ||
-      dataInput10.trim() === "" 
+      dataInput9.trim() === "" 
+      // dataInput10.trim() === "" 
     ) {
       warning();
       return;
@@ -167,7 +167,7 @@ const DataSearch = () => {
         dataInput7,
         dataInput8,
         dataInput9,
-        dataInput10,
+        // dataInput10,
         timestamp: `${formattedDate} ${formattedTime}`, // Убакытты кошуу
         dataInputName
       };
@@ -183,7 +183,7 @@ const DataSearch = () => {
       setDataInput7("");
       setDataInput8("");
       setDataInput9("");
-      setDataInput10("");
+      // setDataInput10("");
       setDataInputName("");
     }
   };
@@ -211,17 +211,17 @@ const DataSearch = () => {
           <table className="styled-table-horizontal">
             <thead>
         <tr>
-          <th>Колдонуучу</th>
-          <th>Маалымат 1</th>
-          <th>Маалымат 2</th>
-          <th>Маалымат 3</th>
-          <th>Маалымат 4</th>
-          <th>Маалымат 5</th>
-          <th>Маалымат 6</th>
-          <th>Маалымат 7</th>
-          <th>Маалымат 8</th>
-          <th>Маалымат 9</th>
-          <th>Маалымат 10</th>
+          <th>Кызматкер</th>
+          <th>Справки</th>
+          <th>Пост ЦПГУ</th>
+          <th>Треб Мил</th>
+          <th>Влитие Карт</th>
+          <th>Актуал</th>
+          <th>АКТ СУД РЕЕСТ</th>
+          <th>Пост ПРЕКР</th>
+          <th>Пост Объявление</th>
+          <th>Истребование</th>
+          {/* <th>Маалымат 10</th> */}
         </tr>
       </thead>
       <tbody>
@@ -258,9 +258,9 @@ const DataSearch = () => {
           <th>
             <input onChange={(e) => setDataInput9(e.target.value)} value={dataInput9} type="text" className="table-input"/>
           </th>
-          <th>
+          {/* <th>
             <input onChange={(e) => setDataInput10(e.target.value)} value={dataInput10} type="text" className="table-input"/>
-          </th>
+          </th> */}
         </tr>
       </tbody>
     </table>
@@ -319,8 +319,8 @@ const DataSearch = () => {
         style={{
           border: "50%",
           position: "absolute",
-          top: "220px",
-          left: "44%",
+          top: "270px",
+          left: "46%",
           display: spinnerLoad ? "block" : "none",
           zIndex: "499",
           margin: "0 auto",

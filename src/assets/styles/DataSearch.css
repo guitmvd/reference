@@ -89,14 +89,13 @@
   font-weight: 600;
 }
 
-
-
 .dataSearch h1 {
   color: red;
 }
 
 .exit {
   display: flex;
+  margin-top: -150px;
   gap: 20px;
 }
 

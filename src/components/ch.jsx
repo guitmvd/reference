@@ -1,3 +1,58 @@
+<tbody>
+{filteredData.length > 0 ? (
+  filteredData.map((el, idx) => (
+    <tr key={idx}>
+      <th>
+        <h2>{el.dataInputName}</h2> {/* Колдонуучунун аты */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput1) || 0}</h2> {/* Маалымат 1 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput2) || 0}</h2> {/* Маалымат 2 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput3) || 0}</h2> {/* Маалымат 3 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput4) || 0}</h2> {/* Маалымат 4 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput5) || 0}</h2> {/* Маалымат 5 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput6) || 0}</h2> {/* Маалымат 6 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput7) || 0}</h2> {/* Маалымат 7 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput8) || 0}</h2> {/* Маалымат 8 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput9) || 0}</h2> {/* Маалымат 9 */}
+      </th>
+      <th>
+        <h2>{parseInt(el.dataInput10) || 0}</h2> {/* Маалымат 10 */}
+      </th>
+      <th>
+        <h4>{el.timestamp}</h4> {/* Убакыт */}
+      </th>
+    </tr>
+  ))
+) : (
+  <tr>
+    <td colSpan="12" style={{ textAlign: "center" }}>
+      Маалымат табылган жок
+    </td>
+  </tr>
+)}
+              </tbody>
+
+
+
+
+
 import React, { useEffect, useState } from 'react';
 import backImg from "../../assets/img/home_new1.webp";
 import { useDispatch, useSelector } from 'react-redux';
@@ -73,9 +128,9 @@ const handleFilterData = () => {
   const totalM9 = data.reduce((acc, el) => {
     return (acc += +el.dataInput9);
   }, 0);
-  // const totalM10 = data.reduce((acc, el) => {
-  //   return (acc += +el.dataInput10);
-  // }, 0);
+  const totalM10 = data.reduce((acc, el) => {
+    return (acc += +el.dataInput10);
+  }, 0);
 
   useEffect(() => {
     if (filteredData.length > 0) {
@@ -93,7 +148,7 @@ const handleFilterData = () => {
         "Маалымат 7",
         "Маалымат 8",
         "Маалымат 9",
-        // "Маалымат 10",
+        "Маалымат 10",
       ];
       const dataValues = [
         data.reduce((sum, item) => sum + (parseInt(item.dataInput1) || 0), 0),
@@ -105,7 +160,7 @@ const handleFilterData = () => {
         data.reduce((sum, item) => sum + (parseInt(item.dataInput7) || 0), 0),
         data.reduce((sum, item) => sum + (parseInt(item.dataInput8) || 0), 0),
         data.reduce((sum, item) => sum + (parseInt(item.dataInput9) || 0), 0),
-        // data.reduce((sum, item) => sum + (parseInt(item.dataInput10) || 0), 0),
+        data.reduce((sum, item) => sum + (parseInt(item.dataInput10) || 0), 0),
       ];
       setChartData({
         labels,
@@ -155,7 +210,7 @@ const handleFilterData = () => {
           item.dataInput7,
           item.dataInput8,
           item.dataInput9,
-          // item.dataInput10,
+          item.dataInput10,
         ];
         // Колдонуучунун аты боюнча топтоо
         if (!acc[userName]) {
@@ -184,7 +239,7 @@ const handleFilterData = () => {
               "Маалымат 7",
               "Маалымат 8",
               "Маалымат 9",
-              // "Маалымат 10",
+              "Маалымат 10",
             ],
             datasets: [
               {
@@ -263,7 +318,7 @@ const handleFilterData = () => {
                     <th>Маалымат 7</th>
                     <th>Маалымат 8</th>
                     <th>Маалымат 9</th>
-                    {/* <th>Маалымат 10</th> */}
+                    <th>Маалымат 10</th>
                     <th>Убакыт</th>
                   </tr>
                 </thead>
@@ -349,9 +404,9 @@ const handleFilterData = () => {
         <td>
           <h2>{parseInt(el.dataInput9) || 0}</h2>
         </td>
-        {/* <td>
+        <td>
           <h2>{parseInt(el.dataInput10) || 0}</h2>
-        </td> */}
+        </td>
         <td>
           <h4>{el.timestamp || "Белгиленген эмес"}</h4>
         </td>
@@ -402,9 +457,9 @@ const handleFilterData = () => {
                         <th>
                           <h2>{totalM9}</h2>
                         </th>
-                        {/* <th>
+                        <th>
                           <h2>{totalM10}</h2>
-                        </th> */}
+                        </th>
                         <th>
                           <h2></h2>
                         </th>

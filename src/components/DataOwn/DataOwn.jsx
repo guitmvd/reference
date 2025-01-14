@@ -27,6 +27,37 @@ const DataOwn = () => {
     setEditItem(null); // Модалды жаап коюу
   };
 
+  const totalM1 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput1);
+  }, 0);
+  const totalM2 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput2);
+  }, 0);
+  const totalM3 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput3);
+  }, 0);
+  const totalM4 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput4);
+  }, 0);
+  const totalM5 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput5);
+  }, 0);
+  const totalM6 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput6);
+  }, 0);
+  const totalM7 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput7);
+  }, 0);
+  const totalM8 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput8);
+  }, 0);
+  const totalM9 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+    return (acc += +el.dataInput9);
+  }, 0);
+  // const totalM10 = data.filter((el) => el.dataInputName === userName).reduce((acc, el) => {
+  //   return (acc += +el.dataInput10);
+  // }, 0);
+
   return (
     <div id="dataOwn">
       <div className="container">
@@ -36,17 +67,18 @@ const DataOwn = () => {
               <table className="styled-table-horizontal">
                 <thead>
                   <tr>
-                    <th>Колдонуучу</th>
-                    <th>Маалымат 1</th>
-                    <th>Маалымат 2</th>
-                    <th>Маалымат 3</th>
-                    <th>Маалымат 4</th>
-                    <th>Маалымат 5</th>
-                    <th>Маалымат 6</th>
-                    <th>Маалымат 7</th>
-                    <th>Маалымат 8</th>
-                    <th>Маалымат 9</th>
-                    <th>Маалымат 10</th>
+                  <th>Кызматкер</th>
+          <th>Справки</th>
+          <th>Пост ЦПГУ      </th>
+          <th>Треб Мил</th>
+          <th>Влитие Карт</th>
+          <th>Актуал</th>
+          <th>АКТ СУД РЕЕСТ</th>
+          <th>Пост ПРЕКР</th>
+          <th>Пост Объявление</th>
+          <th>Истребование</th>
+                    {/* <th>Маалымат 10</th> */}
+                    <th>Убакыт</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -65,7 +97,10 @@ const DataOwn = () => {
                         <th>{el.dataInput7}</th>
                         <th>{el.dataInput8}</th>
                         <th>{el.dataInput9}</th>
-                        <th>{el.dataInput10}</th>
+                        {/* <th>{el.dataInput10}</th> */}
+                        <th>
+                          <h4>{el.timestamp}</h4>
+                        </th>
                         <th>
                           <button
                             className="btn-own-update"
@@ -81,6 +116,52 @@ const DataOwn = () => {
                       <td colSpan="5">Маалымат табылган жок</td>
                     </tr>
                   )}
+                </tbody>
+                <tbody>
+                <tr style={{
+                  background: "#19556d",
+                  color: "white"
+                }}>
+                        <th>
+                          <h2>Баары</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM1}</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM2}</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM3}</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM4}</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM5}</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM6}</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM7}</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM8}</h2>
+                        </th>
+                        <th>
+                          <h2>{totalM9}</h2>
+                        </th>
+                        {/* <th>
+                          <h2>{totalM10}</h2>
+                        </th> */}
+                        <th>
+                          <h2></h2>
+                        </th>
+                        <th>
+                          <h2></h2>
+                        </th>
+                      </tr>
                 </tbody>
               </table>
             </div>
@@ -101,7 +182,7 @@ const DataOwn = () => {
       <th>Маалымат 7</th>
       <th>Маалымат 8</th>
       <th>Маалымат 9</th>
-      <th>Маалымат 10</th>
+      {/* <th>Маалымат 10</th> */}
     </tr>
   </thead>
   <tbody>
@@ -161,13 +242,13 @@ const DataOwn = () => {
                 value={formData.dataInput9}
                 onChange={handleChange}
               /></th>
-          <th>  
+          {/* <th>  
              <input
            className="modalOwnInput"
                 name="dataInput10"
                 value={formData.dataInput10}
                 onChange={handleChange}
-              /></th>
+              /></th> */}
         </tr>
   </tbody>
 </table>

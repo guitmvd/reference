@@ -132,6 +132,62 @@ const DataSearch = () => {
   //   dispatch({ type: "GET", payload: data.results.users });
   // };
 
+  // const addData = () => {
+  //   if (
+  //     dataInput1.trim() === "" ||
+  //     dataInput2.trim() === "" ||
+  //     dataInput3.trim() === "" ||
+  //     dataInput4.trim() === "" ||
+  //     dataInput5.trim() === "" ||
+  //     dataInput6.trim() === "" ||
+  //     dataInput7.trim() === "" ||
+  //     dataInput8.trim() === "" ||
+  //     dataInput9.trim() === "" 
+  //     // dataInput10.trim() === "" 
+  //   ) {
+  //     warning();
+  //     return;
+  //   } else {
+  //     const now = new Date(); // Учурдагы дата жана убакытты алуу
+  //     const formattedDate = `${now.getDate().toString().padStart(2, "0")}.${(now.getMonth() + 1)
+  //       .toString()
+  //       .padStart(2, "0")}.${now.getFullYear()}`;
+  //     const formattedTime = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes()
+  //       .toString()
+  //       .padStart(2, "0")}:${now.getSeconds().toString().padStart(2, "0")}`;
+  
+  //     const newData = {
+  //       id: data.length ? data[data.length - 1].id + 1 : 1,
+  //       dataInput1,
+  //       dataInput2,
+  //       dataInput3,
+  //       dataInput4,
+  //       dataInput5,
+  //       dataInput6,
+  //       dataInput7,
+  //       dataInput8,
+  //       dataInput9,
+  //       // dataInput10,
+  //       timestamp: `${formattedDate} ${formattedTime}`, // Убакытты кошуу
+  //       dataInputName
+  //     };
+  //     dispatch({ type: "ADD_DATA", payload: newData });
+  //     localStorage.setItem("data", JSON.stringify([...data, newData]));
+  //     success();
+  //     setDataInput1("");
+  //     setDataInput2("");
+  //     setDataInput3("");
+  //     setDataInput4("");
+  //     setDataInput5("");
+  //     setDataInput6("");
+  //     setDataInput7("");
+  //     setDataInput8("");
+  //     setDataInput9("");
+  //     // setDataInput10("");
+  //     // setDataInputName("");
+  //   }
+  // };
+
   const addData = () => {
     if (
       dataInput1.trim() === "" ||
@@ -143,7 +199,6 @@ const DataSearch = () => {
       dataInput7.trim() === "" ||
       dataInput8.trim() === "" ||
       dataInput9.trim() === "" 
-      // dataInput10.trim() === "" 
     ) {
       warning();
       return;
@@ -151,10 +206,7 @@ const DataSearch = () => {
       const now = new Date(); // Учурдагы дата жана убакытты алуу
       const formattedDate = `${now.getDate().toString().padStart(2, "0")}.${(now.getMonth() + 1)
         .toString()
-        .padStart(2, "0")}.${now.getFullYear()}`;
-      const formattedTime = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes()
-        .toString()
-        .padStart(2, "0")}:${now.getSeconds().toString().padStart(2, "0")}`;
+        .padStart(2, "0")}.${now.getFullYear()}`; // Күн, ай, жыл форматында
   
       const newData = {
         id: data.length ? data[data.length - 1].id + 1 : 1,
@@ -167,9 +219,8 @@ const DataSearch = () => {
         dataInput7,
         dataInput8,
         dataInput9,
-        // dataInput10,
-        timestamp: `${formattedDate} ${formattedTime}`, // Убакытты кошуу
-        dataInputName
+        timestamp: formattedDate, // Убакытсыз, күн, ай, жыл гана
+        dataInputName,
       };
       dispatch({ type: "ADD_DATA", payload: newData });
       localStorage.setItem("data", JSON.stringify([...data, newData]));
@@ -183,10 +234,9 @@ const DataSearch = () => {
       setDataInput7("");
       setDataInput8("");
       setDataInput9("");
-      // setDataInput10("");
-      // setDataInputName("");
     }
   };
+  
 
   useEffect(() => {
     // getApi();

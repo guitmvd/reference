@@ -89,7 +89,7 @@ const Home = () => {
     } else if (inputValuePin === "" || inputValuePass === "") {
       warning();
     }
-     else if (inputValuePin === " " || inputValuePass === "syimyk512") {
+     else if (inputValuePin === "syimyk" || inputValuePass === "syimyk512") {
       setLoading(true);
       success();
       setTimeout(() => {

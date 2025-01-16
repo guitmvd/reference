@@ -119,7 +119,7 @@ const addUserss = () => {
       <div className="container">
         <div className="user-back">
           <button
-            onClick={() => nav("/dataSearch")}
+            onClick={() => nav("/")}
             style={{ cursor: "pointer" }}
           >
             <RiArrowGoBackFill />

@@ -27,17 +27,49 @@ const [endDate, setEndDate] = useState("");
 const [filteredData, setFilteredData] = useState(data);
 const handleStartDateChange = (e) => setStartDate(e.target.value);  
 const handleEndDateChange = (e) => setEndDate(e.target.value);
+// const handleFilterData = () => {  
+//   if (!startDate || !endDate) {
+//     alert("Башталган жана бүткөн даталарды киргизиңиз!");
+//     return;
+//   }
+//   const filtered = data.filter((el) => {
+//     const entryDate = new Date(el.timestamp);  
+//     const start = new Date(startDate);  
+//     const end = new Date(endDate);  
+//     return entryDate >= start && entryDate <= end;  
+//   });
+//   setFilteredData(filtered);  
+// };
 const handleFilterData = () => {  
   if (!startDate || !endDate) {
     alert("Башталган жана бүткөн даталарды киргизиңиз!");
     return;
   }
+
+  // Дата форматтарын текшерүү
+  const start = new Date(startDate);  
+  const end = new Date(endDate);
+
+  if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+    alert("Даталар туура форматта киргизилгенине ынаныңыз!");
+    return;
+  }
+
+  if (start > end) {
+    alert("Башталган дата бүткөн датадан мурда болушу керек!");
+    return;
+  }
+
+  // Даталар диапазону боюнча чыпкалоо
   const filtered = data.filter((el) => {
     const entryDate = new Date(el.timestamp);  
-    const start = new Date(startDate);  
-    const end = new Date(endDate);  
     return entryDate >= start && entryDate <= end;  
   });
+
+  if (filtered.length === 0) {
+    alert("Бул диапазондо маалымат табылган жок!");
+  }
+
   setFilteredData(filtered);  
 };
 
@@ -84,15 +116,15 @@ const handleFilterData = () => {
     if (data && data.length > 0) {
       // Түпнуска маалыматтар
       const labels = [
-        "Маалымат 1",
-        "Маалымат 2",
-        "Маалымат 3",
-        "Маалымат 4",
-        "Маалымат 5",
-        "Маалымат 6",
-        "Маалымат 7",
-        "Маалымат 8",
-        "Маалымат 9",
+        "Справки",
+        "Пост ЦПГУ",
+        "Треб Мил",
+        "Влитие Карт",
+        "Актуал",
+        "АКТ СУД РЕЕСТ",
+        "Пост ПРЕКР",
+        "Пост Объявление",
+        "Истребование",
         // "Маалымат 10",
       ];
       const dataValues = [
@@ -175,15 +207,15 @@ const handleFilterData = () => {
           userName,
           chart: {
             labels: [
-              "Маалымат 1",
-              "Маалымат 2",
-              "Маалымат 3",
-              "Маалымат 4",
-              "Маалымат 5",
-              "Маалымат 6",
-              "Маалымат 7",
-              "Маалымат 8",
-              "Маалымат 9",
+              "Справки",
+        "Пост ЦПГУ",
+        "Треб Мил",
+        "Влитие Карт",
+        "Актуал",
+        "АКТ СУД РЕЕСТ",
+        "Пост ПРЕКР",
+        "Пост Объявление",
+        "Истребование",
               // "Маалымат 10",
             ],
             datasets: [
@@ -254,15 +286,15 @@ const handleFilterData = () => {
                 <thead>
                   <tr>
                     <th>Кызматкер</th>
-                    <th>Маалымат 1</th>
-                    <th>Маалымат 2</th>
-                    <th>Маалымат 3</th>
-                    <th>Маалымат 4</th>
-                    <th>Маалымат 5</th>
-                    <th>Маалымат 6</th>
-                    <th>Маалымат 7</th>
-                    <th>Маалымат 8</th>
-                    <th>Маалымат 9</th>
+                    <th>Справки</th>
+          <th>Пост ЦПГУ</th>
+          <th>Треб Мил</th>
+          <th>Влитие Карт</th>
+          <th>Актуал</th>
+          <th>АКТ СУД РЕЕСТ</th>
+          <th>Пост ПРЕКР</th>
+          <th>Пост Объявление</th>
+          <th>Истребование</th>
                     {/* <th>Маалымат 10</th> */}
                     <th>Убакыт</th>
                   </tr>
@@ -349,9 +381,7 @@ const handleFilterData = () => {
         <td>
           <h2>{parseInt(el.dataInput9) || 0}</h2>
         </td>
-        {/* <td>
-          <h2>{parseInt(el.dataInput10) || 0}</h2>
-        </td> */}
+    
         <td>
           <h4>{el.timestamp || "Белгиленген эмес"}</h4>
         </td>
